@@ -28,13 +28,37 @@ const getContrastText = (bgColor: string): string => {
 
 const getColorPalette = (theme: ThemeSchema, color: ChipColor) => {
   const palette = (theme as ThemeSchema)?.palette;
+
+  // Default: use mid-gray that's visible on white backgrounds
   if (color === 'default') {
     return {
-      main: palette?.disabled?.light ?? '#e0e0e0',
+      main: palette?.disabled?.dark ?? '#8c8c8c',
       light: palette?.background?.default ?? '#fafafa',
       contrastText: palette?.text?.primary ?? '#424242',
     };
   }
+
+  // Semantic colors: theme uses light/pastel values for main, use dark for vivid colors
+  const semanticMap: Record<string, { fallbackMain: string; fallbackLight: string }> = {
+    error:   { fallbackMain: '#f44336', fallbackLight: '#ffebee' },
+    success: { fallbackMain: '#52c41a', fallbackLight: '#f6ffed' },
+    warning: { fallbackMain: '#faad14', fallbackLight: '#fffbe6' },
+  };
+
+  if (color in semanticMap) {
+    const semantic = semanticMap[color];
+    const colorPalette = palette?.[color as keyof typeof palette] as
+      | { main: string; dark?: string; light?: string }
+      | undefined;
+    const main = colorPalette?.dark ?? semantic.fallbackMain;
+    return {
+      main,
+      light: colorPalette?.light ?? semantic.fallbackLight,
+      contrastText: getContrastText(main),
+    };
+  }
+
+  // Standard colors (primary, secondary, info, etc.)
   const colorPalette = palette?.[color as keyof typeof palette] as
     | { main: string; light?: string; contrastText?: string }
     | undefined;
