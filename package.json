@@ -1,0 +1,62 @@
+{
+  "name": "@thanh-libs/chip",
+  "version": "0.0.1",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "@thanh-libs/source": "./src/index.ts",
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "release": "standard-version",
+    "release:minor": "standard-version --release-as minor",
+    "release:major": "standard-version --release-as major"
+  },
+  "peerDependencies": {
+    "@emotion/react": ">=11.0.0",
+    "@emotion/styled": ">=11.0.0",
+    "@thanh-libs/theme": ">=0.0.3",
+    "@thanh-libs/utils": ">=0.0.5",
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0"
+  },
+  "files": [
+    "dist",
+    "LICENSE",
+    "!**/*.tsbuildinfo",
+    "!**/*.stories.*"
+  ],
+  "devDependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@testing-library/jest-dom": "^6.9.0",
+    "@testing-library/react": "^16.3.0",
+    "@thanh-libs/theme": "^0.0.4",
+    "@thanh-libs/utils": "^0.0.6",
+    "@vitejs/plugin-react": "^4.2.0",
+    "jsdom": "~22.1.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "typescript": "~5.9.2",
+    "vite": "^7.0.0",
+    "vite-plugin-dts": "~4.5.0",
+    "vitest": "^4.1.0"
+  },
+  "standard-version": {
+    "scripts": {
+      "prerelease": "npx vitest run --passWithNoTests",
+      "postbump": "npx vite build"
+    }
+  }
+}
