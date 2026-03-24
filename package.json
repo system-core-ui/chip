@@ -55,8 +55,8 @@
   },
   "standard-version": {
     "scripts": {
-      "prerelease": "npx vitest run --passWithNoTests",
-      "postbump": "npx vite build"
+      "prerelease": "node ../../node_modules/vitest/vitest.mjs run --passWithNoTests",
+      "postbump": "node ../../node_modules/vite/bin/vite.js build"
     }
   }
 }
