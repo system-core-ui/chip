@@ -26,8 +26,8 @@
   "peerDependencies": {
     "@emotion/react": ">=11.0.0",
     "@emotion/styled": ">=11.0.0",
-    "@thanh-libs/theme": ">=0.0.3",
-    "@thanh-libs/utils": ">=0.0.5",
+    "@thanh-libs/theme": "*",
+    "@thanh-libs/utils": "*",
     "react": ">=18.0.0",
     "react-dom": ">=18.0.0"
   },
@@ -42,8 +42,8 @@
     "@emotion/styled": "^11.14.0",
     "@testing-library/jest-dom": "^6.9.0",
     "@testing-library/react": "^16.3.0",
-    "@thanh-libs/theme": "^0.0.4",
-    "@thanh-libs/utils": "^0.0.6",
+    "@thanh-libs/theme": "*",
+    "@thanh-libs/utils": "*",
     "@vitejs/plugin-react": "^4.2.0",
     "jsdom": "~22.1.0",
     "react": "^19.2.0",
