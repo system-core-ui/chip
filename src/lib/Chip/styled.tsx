@@ -41,7 +41,7 @@ export const ChipStyled = styled.span<{
     // Color
     backgroundColor: isFilled ? colorPalette.main : 'transparent',
     color: isFilled ? colorPalette.contrastText : colorPalette.main,
-    border: isFilled ? 'none' : `1px solid ${alpha(colorPalette.main, 0.5)}`,
+    border: isFilled ? 'none' : `${pxToRem(1)} solid ${alpha(colorPalette.main, 0.5)}`,
 
     // Clickable
     ...(ownerClickable && !ownerDisabled && {
@@ -57,8 +57,8 @@ export const ChipStyled = styled.span<{
           : alpha(colorPalette.main, 0.16),
       },
       '&:focus-visible': {
-        outline: `2px solid ${colorPalette.main}`,
-        outlineOffset: '2px',
+        outline: `${pxToRem(2)} solid ${colorPalette.main}`,
+        outlineOffset: pxToRem(2),
       },
     }),
 
@@ -131,8 +131,8 @@ export const ChipDeleteStyled = styled.span<{
       backgroundColor: alpha(isFilled ? colorPalette.contrastText : colorPalette.main, 0.15),
     },
     '&:focus-visible': {
-      outline: `2px solid ${colorPalette.main}`,
-      outlineOffset: '1px',
+      outline: `${pxToRem(2)} solid ${colorPalette.main}`,
+      outlineOffset: pxToRem(1),
     },
     '& > svg': {
       width: pxToRem(sizeConfig.iconSize - 2),
