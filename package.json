@@ -55,7 +55,7 @@
   },
   "standard-version": {
     "scripts": {
-      "prerelease": "node ../../node_modules/vitest/vitest.mjs run --passWithNoTests",
+      "prerelease": "node check-deps.mjs && npx vitest run --passWithNoTests",
       "postbump": "node ../../node_modules/vite/bin/vite.js build"
     }
   }
